@@ -1,5 +1,4 @@
 import java.util.*;
-
 /**
  * Code that decodes each possible output from a string of morsecode
  * @author Jacob Brown
@@ -13,7 +12,6 @@ public class MorseCode {
 				"k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
 				"w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8",
 				"9", "0"};
-		
 		String[] morseCodes = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
 				"....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.",
 				"--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-",
@@ -27,25 +25,25 @@ public class MorseCode {
 	}
 	
 	/**
-	 * recursive call that decodes morsecode input
+	 * Recursive call that decodes morsecode input
 	 * @param s Morsecode input
-	 * @param f previous morsecode inputs that have been decoded
+	 * @param decoded Previous morsecode inputs that have been decoded
 	 */
-	public static void morse(String s, String f) {
+	public static void morse(String s, String decoded) {
 		if(s.length() == 0) {
-				System.out.println(f);
+				System.out.println(decoded);
 		}
 		else {
 			for(int i = 1; i <= s.length() ; i++) {
 				String d = decode(s.substring(0, i)); 
 				if(d.length() != 0)
-					morse(s.substring(i),f+d);					
+					morse(s.substring(i),decoded+d);					
 			}
 		}
 	}
 	
 	/**
-	 * takes in morsecode and returns its letter equivalent 
+	 * Takes in morsecode and returns its letter equivalent 
 	 * @param s morsecode input
 	 * @return translated morsecode
 	 */
@@ -55,5 +53,4 @@ public class MorseCode {
 		else 
 			return Morsecode.get(s);		
 	}
-
 }
